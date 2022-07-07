@@ -1,13 +1,15 @@
 package com.sofka.appointment;
 
+import com.sofka.employee.Veterinary;
+
 import java.util.Date;
 
 public class MedicalAppointment extends Appointment{
 
-    private String veterinarianId;
+    private Veterinary veterinary;
 
-    public MedicalAppointment(String patientClinicalNumber, Date date, String veterinarianId) {
+    public MedicalAppointment(String patientClinicalNumber, Date date, Veterinary veterinary) {
         super(patientClinicalNumber, date);
-        this.veterinarianId = veterinarianId;
+        this.veterinary = veterinary;
     }
 }

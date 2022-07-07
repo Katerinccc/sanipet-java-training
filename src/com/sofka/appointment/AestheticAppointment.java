@@ -1,13 +1,14 @@
 package com.sofka.appointment;
 
+import com.sofka.employee.Stylist;
 import java.util.Date;
 
 public class AestheticAppointment extends Appointment{
 
-    private String stylistId;
+    private Stylist stylist;
 
-    public AestheticAppointment(String patientClinicalNumber, Date date, String stylistId) {
+    public AestheticAppointment(String patientClinicalNumber, Date date, Stylist stylist) {
         super(patientClinicalNumber, date);
-        this.stylistId = stylistId;
+        this.stylist = stylist;
     }
 }

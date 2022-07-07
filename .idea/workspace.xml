@@ -2,34 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9c545cd-4c68-4c62-92ad-852d2806ece2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sanipet.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/appointment/AestheticAppointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/appointment/Appointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/appointment/MedicalAppointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/appointment/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/appointment/SurgeryAppointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/employee/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/employee/Schedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/employee/Stylist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/employee/Veterinary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/employee/WorkingDay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/entities/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/medicine/MeasurementUnit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/medicine/Medicine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/medicine/Presentation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/medicine/Usage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/patient/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/patient/Dog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/patient/Owner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/sofka/patient/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sofka/appointment/AestheticAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sofka/appointment/AestheticAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sofka/appointment/MedicalAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sofka/appointment/MedicalAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sofka/appointment/SurgeryAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sofka/appointment/SurgeryAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sofka/employee/Veterinary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sofka/employee/Veterinary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +51,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657136074297</updated>
-      <workItem from="1657136076990" duration="5220000" />
+      <workItem from="1657136076990" duration="7097000" />
     </task>
     <servers />
   </component>
