@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9c545cd-4c68-4c62-92ad-852d2806ece2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/sofka/ui/UIAppointment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sofka/ui/UIMedicine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sofka/ui/UIMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sofka/ui/UIPatient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sofka/appointment/AestheticAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sofka/appointment/AestheticAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sofka/appointment/MedicalAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sofka/appointment/MedicalAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sofka/appointment/SurgeryAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sofka/appointment/SurgeryAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sofka/employee/Veterinary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sofka/employee/Veterinary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sofka/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sofka/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -35,14 +37,15 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -51,7 +54,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657136074297</updated>
-      <workItem from="1657136076990" duration="7097000" />
+      <workItem from="1657136076990" duration="7894000" />
+      <workItem from="1657201820158" duration="4076000" />
     </task>
     <servers />
   </component>
