@@ -77,9 +77,8 @@ public class Utility {
     private int getIntegerDataUser(){
         Scanner getUserData = new Scanner(System.in);
 
-        int num = Integer.parseInt(getUserData.nextLine());
-
         int number;
+
         do {
 
             while (!getUserData.hasNextInt()) {
