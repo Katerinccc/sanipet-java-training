@@ -2,6 +2,7 @@ package com.sofka.ui;
 
 import com.sofka.employee.Stylist;
 import com.sofka.employee.Veterinary;
+import com.sofka.patient.Patient;
 import com.sofka.util.DataUserType;
 import com.sofka.util.Utility;
 
@@ -12,6 +13,7 @@ public class UIMenu {
     private Utility utility = new Utility();
     private Integer option = 0;
     private UIEmployee uiEmployee = new UIEmployee();
+    private ArrayList<Patient> patientsSanipet = new ArrayList<>();
 
     public void mainMenu(){
 
@@ -36,11 +38,14 @@ public class UIMenu {
         utility.displayData("-------------------------------------------------------------------------------");
 
         switch (option) {
-            case 1 -> utility.displayData("The functionality is not available yet.");
-            case 2 -> utility.displayData("The functionality is not available yet.");
-            case 3 -> utility.displayData("The functionality is not available yet.");
-            case 4 -> utility.displayData("The functionality is not available yet.");
-            case 5 -> utility.displayData("The functionality is not available yet.");
+            case 1 -> {
+                UIPatient uipatient = new UIPatient();
+                patientsSanipet.addAll(uipatient.patientMenu());
+            }
+            case 2 -> utility.displayData("The option is not available yet.");
+            case 3 -> utility.displayData("The option is not available yet.");
+            case 4 -> utility.displayData("The option is not available yet.");
+            case 5 -> utility.displayData("The option is not available yet.");
             case 0 -> utility.displayData("You have exit the system successfully.");
             default -> utility.displayData("Enter a valid option.");
         }
@@ -48,7 +53,5 @@ public class UIMenu {
         utility.displayData("-------------------------------------------------------------------------------");
 
     }
-
-
 
 }

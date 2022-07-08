@@ -72,6 +72,20 @@ public class UIEmployee {
                         "3127896522",
                         35);
 
+        stylist1.addSchedule(new Schedule("08:00", "16:00", WorkingDay.MONDAY));
+        stylist1.addSchedule(new Schedule("08:00", "16:00", WorkingDay.TUESDAY));
+        stylist1.addSchedule(new Schedule("08:00", "16:00", WorkingDay.WEDNESDAY));
+        stylist1.addSchedule(new Schedule("08:00", "16:00", WorkingDay.THURSDAY));
+        stylist1.addSchedule(new Schedule("08:00", "16:00", WorkingDay.FRIDAY));
+        stylist1.addSchedule(new Schedule("09:00", "15:00", WorkingDay.SATURDAY));
+
+        stylist2.addSchedule(new Schedule("08:00", "16:00", WorkingDay.MONDAY));
+        stylist2.addSchedule(new Schedule("08:00", "16:00", WorkingDay.TUESDAY));
+        stylist2.addSchedule(new Schedule("08:00", "16:00", WorkingDay.WEDNESDAY));
+        stylist2.addSchedule(new Schedule("08:00", "16:00", WorkingDay.THURSDAY));
+        stylist2.addSchedule(new Schedule("08:00", "16:00", WorkingDay.FRIDAY));
+        stylist2.addSchedule(new Schedule("09:00", "15:00", WorkingDay.SATURDAY));
+
         stylists.add(stylist1);
         stylists.add(stylist2);
         return stylists;

@@ -1,21 +1,41 @@
 package com.sofka.patient;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.concurrent.ThreadLocalRandom;
 
-public abstract class Patient {
+public class Patient {
 
-    protected String clinicNumber;
-    protected String name;
-    protected String surname;
-    protected String breed;
-    protected Owner owner;
-    protected boolean isVaccinated;
-    protected Date deparasitizationDate;
+    private String clinicNumber;
+    private String name;
+    private String breed;
+    private Owner owner;
+    private boolean isVaccinated;
+    private LocalDate deparasitizationDate;
+    private PatientType patientType;
 
-    public void generateClinicalNumber (){
+    public Patient(String name,
+                   String breed,
+                   Owner owner,
+                   boolean isVaccinated,
+                   LocalDate deparasitizationDate,
+                   PatientType patientType)
+    {
+        this.name = name;
+        this.breed = breed;
+        this.owner = owner;
+        this.isVaccinated = isVaccinated;
+        this.deparasitizationDate = deparasitizationDate;
+        this.patientType = patientType;
+        this.clinicNumber = generateClinicalNumber();
+    }
+
+    private String generateClinicalNumber (){
         int randomNum = ThreadLocalRandom.current().nextInt( 1 , 999999 + 1 );
-        this.clinicNumber = String.valueOf(randomNum);
+        return String.valueOf(randomNum);
+    }
+
+    public String getClinicNumber() {
+        return clinicNumber;
     }
 
     public String getName() {
@@ -24,14 +44,6 @@ public abstract class Patient {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public String getBreed() {
@@ -58,11 +70,19 @@ public abstract class Patient {
         isVaccinated = vaccinated;
     }
 
-    public Date getDeparasitizationDate() {
+    public LocalDate getDeparasitizationDate() {
         return deparasitizationDate;
     }
 
-    public void setDeparasitizationDate(Date deparasitizationDate) {
+    public void setDeparasitizationDate(LocalDate deparasitizationDate) {
         this.deparasitizationDate = deparasitizationDate;
+    }
+
+    public PatientType getPatientType() {
+        return patientType;
+    }
+
+    public void setPatientType(PatientType patientType) {
+        this.patientType = patientType;
     }
 }
