@@ -29,11 +29,15 @@ public class UIPatient {
 
     private void options (int option) {
 
+        utility.displayData("-------------------------------------------------------------------------------");
+
         switch (option) {
             case 1 -> registerPatient();
             case 0 -> utility.displayData("You will be redirect to main menu.");
             default -> utility.displayData("Enter a valid option.");
         }
+
+        utility.displayData("-------------------------------------------------------------------------------");
     }
 
     private void registerPatient(){

@@ -1,5 +1,6 @@
 package com.sofka.ui;
 
+import com.sofka.appointment.Appointment;
 import com.sofka.employee.Stylist;
 import com.sofka.employee.Veterinary;
 import com.sofka.patient.Patient;
@@ -7,6 +8,7 @@ import com.sofka.util.DataUserType;
 import com.sofka.util.Utility;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UIMenu {
 
@@ -14,6 +16,7 @@ public class UIMenu {
     private Integer option = 0;
     private UIEmployee uiEmployee = new UIEmployee();
     private ArrayList<Patient> patientsSanipet = new ArrayList<>();
+    private ArrayList<Appointment> appointmentsSanipet = new ArrayList<>();
 
     public void mainMenu(){
 
@@ -42,7 +45,12 @@ public class UIMenu {
                 UIPatient uipatient = new UIPatient();
                 patientsSanipet.addAll(uipatient.patientMenu());
             }
-            case 2 -> utility.displayData("The option is not available yet.");
+            case 2 -> {
+                UIAppointment uiAppointment = new UIAppointment();
+                List<Appointment> appointmentsUpdate =
+                        uiAppointment.appointmentMenu(patientsSanipet, appointmentsSanipet);
+                appointmentsSanipet.addAll(appointmentsUpdate);
+            }
             case 3 -> utility.displayData("The option is not available yet.");
             case 4 -> utility.displayData("The option is not available yet.");
             case 5 -> utility.displayData("The option is not available yet.");
