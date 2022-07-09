@@ -3,6 +3,7 @@ package com.sofka.ui;
 import com.sofka.appointment.Appointment;
 import com.sofka.employee.Stylist;
 import com.sofka.employee.Veterinary;
+import com.sofka.medicine.Medicine;
 import com.sofka.patient.Patient;
 import com.sofka.util.DataUserType;
 import com.sofka.util.Utility;
@@ -52,8 +53,10 @@ public class UIMenu {
                 appointmentsSanipet.addAll(appointmentsUpdate);
             }
             case 3 -> utility.displayData("The option is not available yet.");
-            case 4 -> utility.displayData("The option is not available yet.");
-            case 5 -> utility.displayData("The option is not available yet.");
+            case 4 -> {
+                UIMedicine uiMedicine = new UIMedicine();
+                uiMedicine.medicineMenu();
+            }
             case 0 -> utility.displayData("You have exit the system successfully.");
             default -> utility.displayData("Enter a valid option.");
         }

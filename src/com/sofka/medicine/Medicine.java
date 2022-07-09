@@ -1,5 +1,7 @@
 package com.sofka.medicine;
 
+import com.sofka.util.Utility;
+
 public class Medicine {
 
     private String name;
@@ -8,6 +10,8 @@ public class Medicine {
     private MeasurementUnit measurement;
     private Usage usage;
     private int availableStock;
+
+    private Utility utility = new Utility();
 
     public Medicine(String name,
                     Presentation presentation,
@@ -23,4 +27,14 @@ public class Medicine {
         this.usage = usage;
         this.availableStock = availableStock;
     }
+
+    public void displayMedicine(){
+        utility.displayData("Name: "+ this.name
+                + " | Presentation:" + this.presentation.toString().toLowerCase()
+                + " | Quantity: "+ this.quantity
+                + " | Measurement unit: "+ this.measurement.toString().toLowerCase()
+                + " | Usage: "+ this.usage.toString().toLowerCase()
+                + " | Available stock: " + this.availableStock);
+    }
+
 }
