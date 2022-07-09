@@ -5,7 +5,6 @@ import com.sofka.medicine.Medicine;
 import com.sofka.medicine.Presentation;
 import com.sofka.medicine.Usage;
 import com.sofka.util.Utility;
-
 import java.util.ArrayList;
 import java.util.List;
 

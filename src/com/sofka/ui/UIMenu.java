@@ -3,11 +3,9 @@ package com.sofka.ui;
 import com.sofka.appointment.Appointment;
 import com.sofka.employee.Stylist;
 import com.sofka.employee.Veterinary;
-import com.sofka.medicine.Medicine;
 import com.sofka.patient.Patient;
 import com.sofka.util.DataUserType;
 import com.sofka.util.Utility;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +25,8 @@ public class UIMenu {
         do {
             utility.displayData("Welcome to Sanipet - Veterinary care center");
             utility.displayData("1. Register patient");
-            utility.displayData("2. Create Appointment");
-            utility.displayData("3. Billings");
+            utility.displayData("2. Appointments");
+            utility.displayData("3. Billing");
             utility.displayData("4. Medicine stock");
             utility.displayData("0. Exit the system");
             option = (Integer) utility.getDataUser(DataUserType.INTEGER);

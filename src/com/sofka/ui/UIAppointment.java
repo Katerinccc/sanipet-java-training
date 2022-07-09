@@ -28,6 +28,7 @@ public class UIAppointment {
             patients = patientsSanipet;
             utility.displayData("1. Create appointment");
             utility.displayData("2. Update appointment status");
+            utility.displayData("3. Display appointments by date");
             utility.displayData("0. Return to main menu");
             option = (Integer) utility.getDataUser(DataUserType.INTEGER);
             options(option);
@@ -43,6 +44,7 @@ public class UIAppointment {
         switch (option) {
             case 1 -> registerAppointment();
             case 2 -> updateAppointment(appointments);
+            case 3 -> displayAppointmentsDate();
             case 0 -> utility.displayData("You will be redirect to main menu.");
             default -> utility.displayData("Enter a valid option.");
         }
@@ -168,6 +170,21 @@ public class UIAppointment {
 
         return difference > 0;
 
+    }
+
+    private void displayAppointmentsDate(){
+
+        utility.displayData("Enter date to search appointments:");
+        LocalDate date = (LocalDate) utility.getDataUser(DataUserType.DATE);
+
+        List<Appointment> appointmentsPerDate =
+                appointments.stream().filter(dates -> dates.getDate().equals(date)).toList();
+
+        if (appointmentsPerDate.isEmpty()){
+            utility.displayData("There are no appointments for the indicated date");
+        }else {
+            appointmentsPerDate.forEach(Appointment::displayAppointment);
+        }
     }
 
 }

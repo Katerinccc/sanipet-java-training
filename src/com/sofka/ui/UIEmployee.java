@@ -4,7 +4,6 @@ import com.sofka.employee.Schedule;
 import com.sofka.employee.Stylist;
 import com.sofka.employee.Veterinary;
 import com.sofka.employee.WorkingDay;
-
 import java.util.ArrayList;
 
 public class UIEmployee {
