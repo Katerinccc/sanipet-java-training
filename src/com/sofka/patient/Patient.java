@@ -2,11 +2,10 @@ package com.sofka.patient;
 
 import java.time.LocalDate;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Patient {
 
-    private String clinicNumber;
+    private final String clinicNumber;
     private String name;
     private String breed;
     private Owner owner;
@@ -31,8 +30,7 @@ public class Patient {
     }
 
     private String generateClinicalNumber (){
-        Random random = new Random();
-        int randomNum = random.nextInt(999999);
+        int randomNum = new Random().nextInt(999999);
         return String.valueOf(randomNum);
     }
 

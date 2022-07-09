@@ -1,7 +1,6 @@
 package com.sofka;
 
 import com.sofka.ui.UIMenu;
-import com.sofka.util.Utility;
 
 public class Main {
 

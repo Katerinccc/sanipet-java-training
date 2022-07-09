@@ -123,18 +123,26 @@ public class Utility {
         int booleanOption;
         do {
 
-            while (!getUserData.hasNextInt()) {
-                displayError("Please indicate 1 for true or 0 for false:");
-                getUserData.next();
-            }
+            validateNumberBool(getUserData);
 
             booleanOption = getUserData.nextInt();
             validateBoolean(booleanOption);
 
-        } while (booleanOption != 0 && booleanOption != 1);
+        } while (isBoolean(booleanOption));
 
         return booleanOption == 1;
 
+    }
+
+    private boolean isBoolean(int booleanOption) {
+        return booleanOption != 0 && booleanOption != 1;
+    }
+
+    private void validateNumberBool(Scanner getUserData) {
+        while (!getUserData.hasNextInt()) {
+            displayError("Please indicate 1 for true or 0 for false:");
+            getUserData.next();
+        }
     }
 
     /**
@@ -165,7 +173,7 @@ public class Utility {
      * @param number the number to validate.
      */
     private void validateBoolean(int number){
-        if (number != 0 && number != 1){
+        if (isBoolean(number)){
             displayError("Please indicate 1 for true or 0 for false:");
         }
     }

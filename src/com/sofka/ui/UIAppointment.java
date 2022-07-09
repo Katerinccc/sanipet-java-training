@@ -163,7 +163,7 @@ public class UIAppointment {
 
     private Status changeStatus(Appointment appointmentUpdate){
 
-        Status status = null;
+        Status status;
 
         utility.displayData("Select the new status for the Appointment:");
         utility.displayData("1. Finished");
@@ -172,22 +172,28 @@ public class UIAppointment {
 
         do {
             option = (Integer) utility.getDataUser(DataUserType.INTEGER);
-            switch (option){
-                case 1 -> status = Status.FINISHED;
-                case 2 -> status = Status.ABSENT;
-                case 3 -> {
-                    if (validateCancelAppointment(appointmentUpdate)){
-                        status = Status.CANCELED;
-                    }else {
-                        utility.displayData("The appointment can not be canceled due to veterinary policies.");
-                        utility.displayData("The status will change to absent.");
-                        status = Status.ABSENT;
-                    }
-                }
-                default -> utility.displayData("Select a valid option:");
-            }
+            status = getStatus(appointmentUpdate);
         }while (status == null);
 
+        return status;
+    }
+
+    private Status getStatus(Appointment appointmentUpdate) {
+        Status status = null;
+        switch (option){
+            case 1 -> status = Status.FINISHED;
+            case 2 -> status = Status.ABSENT;
+            case 3 -> {
+                if (validateCancelAppointment(appointmentUpdate)){
+                    status = Status.CANCELED;
+                }else {
+                    utility.displayData("The appointment can not be canceled due to veterinary policies.");
+                    utility.displayData("The status will change to absent.");
+                    status = Status.ABSENT;
+                }
+            }
+            default -> utility.displayData("Select a valid option:");
+        }
         return status;
     }
 
