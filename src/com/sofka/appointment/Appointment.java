@@ -14,12 +14,19 @@ public class Appointment {
 
     private AppointmentType appointmentType;
 
+    private String responsible;
+
     private Utility utility = new Utility();
 
-    public Appointment(String patientClinicalNumber, LocalDate date, AppointmentType appointmentType) {
+    public Appointment(String patientClinicalNumber,
+                       LocalDate date,
+                       AppointmentType appointmentType,
+                       String responsible)
+    {
         this.patientClinicalNumber = patientClinicalNumber;
         this.date = date;
         this.appointmentType = appointmentType;
+        this.responsible = responsible;
         this.id = UUID. randomUUID();
         this.status = Status.NOT_STARTED;
     }
@@ -34,6 +41,10 @@ public class Appointment {
 
     public Status getStatus() {
         return status;
+    }
+
+    public String getResponsible() {
+        return responsible;
     }
 
     public LocalDate getDate() {

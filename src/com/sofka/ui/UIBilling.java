@@ -16,6 +16,7 @@ public class UIBilling {
     private List<Medicine> medicines;
     private List<Appointment> appointments;
     private UIAppointment uiAppointment = new UIAppointment();
+    private String billResponsible = null;
 
     public List<Medicine> billingMenu (List<Medicine> medicinesSanipet,
                            List<Appointment> appointmentsSanipet){
@@ -40,24 +41,17 @@ public class UIBilling {
 
         switch (option) {
             case 1 -> {
-                if (createBill() == 0){
+                double billValue = createBill();
+                if (billValue == 0){
                     break;
                 }
-                displayBill();
+                displayBill(billValue);
             }
             case 0 -> utility.displayData("You will be redirect to main menu.");
             default -> utility.displayData("Enter a valid option.");
         }
 
         utility.displayData("-------------------------------------------------------------------------------");
-    }
-
-    private void displayBill() {
-        double subTotal = createBill();
-        double taxes = subTotal * IVA;
-        double total = subTotal + taxes;
-        utility.displayData("Bill created successfully, this is your resume: \n"
-        + "Subtotal = " + subTotal + "\nTaxes = " + taxes + "\nTotal to pay = " + total);
     }
 
     private Double createBill(){
@@ -73,30 +67,40 @@ public class UIBilling {
 
         Appointment appointmentBill = optionalAppointment.get();
 
+        billResponsible = appointmentBill.getResponsible();
+
         if (appointmentBill.getStatus().equals(Status.FINISHED)){
             billValue = 200;
             billValue += billMedicines();
         }else {
-            utility.displayData("The appointment is not finished, you can not do the billing yet");
+            utility.displayData("The appointment´status is not finished, " +
+                    "you can not billing this appointment.");
         }
 
         return billValue;
 
     }
 
+    private void displayBill(double billValue) {
+        double taxes = billValue * IVA;
+        double total = billValue + taxes;
+        utility.displayData("Bill created successfully, this is your resume: "
+                + "\nSANIPET CARE CENTER NIT: 811.013.347-7 "
+                + "\nResponsible: " + billResponsible
+                + "\nSubtotal = " + billValue
+                + "\nTaxes = " + taxes
+                + "\nTotal to pay = " + total);
+    }
+
     private double billMedicines(){
 
-        boolean option = false;
         double subTotal = 0;
-
 
         do {
             if (addMedicine()){
                 subTotal += billMedicine();
-                utility.displayData("Do you want to add more medicines? Press 1 to continue or 0 to finish bill");
-                option = (boolean) utility.getDataUser(DataUserType.BOOLEAN);
             }
-        }while (!option);
+        }while (addMedicine());
 
         return subTotal;
     }
@@ -111,7 +115,7 @@ public class UIBilling {
         Medicine medicine = getMedicine();
 
         utility.displayData("Available stock of medicine: " + medicine.getName()
-                + "is " + medicine.getAvailableStock() + "units");
+                + " is " + medicine.getAvailableStock() + " units.");
         utility.displayData("Please enter the quantity to bill:");
         int quantity = (int) utility.getDataUser(DataUserType.INTEGER);
 
@@ -122,12 +126,13 @@ public class UIBilling {
     private int getBillValue(Medicine medicine, int quantity) {
         int value = 0;
 
-        if (quantity <= medicine.getAvailableStock()){
+        if (quantity <= medicine.getAvailableStock()) {
             medicine.setAvailableStock(medicine.getAvailableStock() - quantity);
             value = medicine.getPrice() * quantity;
-            utility.displayData("Product added successfully");
+            utility.displayData("Product added successfully.");
+        }else {
+            utility.displayData("The quantity is higher than the available stock.");
         }
-        utility.displayData("The quantity is higher that the available stock.");
 
         return value;
     }

@@ -15,4 +15,16 @@ public abstract class Person {
         this.cellphone = cellphone;
         this.age = age;
     }
+
+    public String getDNI() {
+        return DNI;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
 }

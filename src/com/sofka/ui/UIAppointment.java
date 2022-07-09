@@ -3,6 +3,7 @@ package com.sofka.ui;
 import com.sofka.appointment.Appointment;
 import com.sofka.appointment.AppointmentType;
 import com.sofka.appointment.Status;
+import com.sofka.patient.Owner;
 import com.sofka.patient.Patient;
 import com.sofka.util.DataUserType;
 import com.sofka.util.Utility;
@@ -62,16 +63,36 @@ public class UIAppointment {
             idPatient = (String) utility.getDataUser(DataUserType.TEXT);
         }while (!patientsId.contains(idPatient));
 
+        Owner owner = getPatientOwner(idPatient);
+
+        String ownerData = "DNI: " + owner.getDNI() + " Full name: "
+                + owner.getName() + " " + owner.getSurname();
+
         utility.displayData("Enter date for the appointment in format yyyy-mm-dd:");
         LocalDate date = (LocalDate) utility.getDataUser(DataUserType.DATE);
 
         AppointmentType appointmentType = selectAppointmentType();
 
-        Appointment newAppointment = new Appointment(idPatient, date, appointmentType);
+        Appointment newAppointment = new Appointment(idPatient, date, appointmentType,ownerData);
         appointments.add(newAppointment);
 
         utility.displayData("The appointment was created successfully, the ID generated is: "
                 + newAppointment.getId());
+
+    }
+
+    private Owner getPatientOwner(String idPatient){
+
+        Optional<Patient> optionalOwner = patients.stream()
+                .filter(item -> item.getClinicNumber().equals(idPatient))
+                .findFirst();
+
+        if (optionalOwner.isEmpty()){
+            utility.displayData("The patient do not exist");
+            return null;
+        }
+
+        return optionalOwner.get().getOwner();
 
     }
 
@@ -110,7 +131,7 @@ public class UIAppointment {
         appointmentUpdate.setStatus(newStatus);
 
         utility.displayData("The Appointment with ID: " +
-                appointmentUpdate.getId() + "was updated successfully.");
+                appointmentUpdate.getId() + " was updated successfully.");
 
     }
 
@@ -192,7 +213,7 @@ public class UIAppointment {
         if (appointmentsPerDate.isEmpty()){
             utility.displayData("There are no appointments for the indicated date");
         }else {
-            utility.displayData("The appointments on date: " + date + "is/are: ");
+            utility.displayData("The appointments on date: " + date + " is/are: ");
             appointmentsPerDate.forEach(Appointment::displayAppointment);
         }
     }
