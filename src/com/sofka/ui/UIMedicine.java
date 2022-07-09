@@ -24,15 +24,16 @@ public class UIMedicine {
     private void createMedicineStock(){
 
         Medicine medicine1 = new Medicine("Meloxican",
-                Presentation.SYRUP, 10, MeasurementUnit.MILLILITERS, Usage.HUMAN, 20);
+                Presentation.SYRUP, 10, MeasurementUnit.MILLILITERS, Usage.HUMAN, 20, 50);
         Medicine medicine2 = new Medicine("Hemolitan",
-                Presentation.PILLS, 20, MeasurementUnit.GRAMS, Usage.HUMAN, 15);
+                Presentation.PILLS, 20, MeasurementUnit.GRAMS, Usage.HUMAN, 15, 120);
         Medicine medicine3 = new Medicine("Inmunoforz ",
-                Presentation.SYRUP, 100, MeasurementUnit.MILLILITERS, Usage.VETERINARIAN, 25);
-        Medicine medicine4 = new Medicine("Meloxican",
-                Presentation.PET_CARE, 20, MeasurementUnit.GRAMS, Usage.VETERINARIAN, 5);
-        Medicine medicine5 = new Medicine("Meloxican",
-                Presentation.SYRUP, 10, MeasurementUnit.MILLILITERS, Usage.HUMAN, 10);
+                Presentation.SYRUP, 100, MeasurementUnit.MILLILITERS,
+                Usage.VETERINARIAN, 25, 70);
+        Medicine medicine4 = new Medicine("Shampoo",
+                Presentation.PET_CARE, 20, MeasurementUnit.GRAMS, Usage.VETERINARIAN, 5, 90);
+        Medicine medicine5 = new Medicine("Antibiotic pet",
+                Presentation.SYRUP, 10, MeasurementUnit.MILLILITERS, Usage.HUMAN, 10, 150);
 
         medicines.add(medicine1);
         medicines.add(medicine2);

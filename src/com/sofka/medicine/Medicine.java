@@ -10,6 +10,7 @@ public class Medicine {
     private MeasurementUnit measurement;
     private Usage usage;
     private int availableStock;
+    private int price;
 
     private Utility utility = new Utility();
 
@@ -18,7 +19,8 @@ public class Medicine {
                     float quantity,
                     MeasurementUnit measurement,
                     Usage usage,
-                    int availableStock)
+                    int availableStock,
+                    int price)
     {
         this.name = name;
         this.presentation = presentation;
@@ -26,6 +28,23 @@ public class Medicine {
         this.measurement = measurement;
         this.usage = usage;
         this.availableStock = availableStock;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAvailableStock() {
+        return availableStock;
+    }
+
+    public void setAvailableStock(int availableStock) {
+        this.availableStock = availableStock;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     public void displayMedicine(){
@@ -34,7 +53,8 @@ public class Medicine {
                 + " | Quantity: "+ this.quantity
                 + " | Measurement unit: "+ this.measurement.toString().toLowerCase()
                 + " | Usage: "+ this.usage.toString().toLowerCase()
-                + " | Available stock: " + this.availableStock);
+                + " | Available stock: " + this.availableStock
+                + " | Price: "+ this.price);
     }
 
 }

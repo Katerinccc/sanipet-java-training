@@ -32,6 +32,10 @@ public class Appointment {
         this.status = status;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
     public LocalDate getDate() {
         return date;
     }

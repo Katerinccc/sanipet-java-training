@@ -23,9 +23,9 @@ public class UIAppointment {
                                              List<Appointment> appointmentsSanipet){
 
         appointments = appointmentsSanipet;
+        patients = patientsSanipet;
 
         do {
-            patients = patientsSanipet;
             utility.displayData("1. Create appointment");
             utility.displayData("2. Update appointment status");
             utility.displayData("3. Display appointments by date");
@@ -99,28 +99,11 @@ public class UIAppointment {
 
     private void updateAppointment(List<Appointment> appointments) {
 
-        List<UUID> appointmentIds = appointments.stream().map(Appointment::getId).toList();
-        String appointmentId;
-        UUID uuidAppointment;
-
-        do {
-            utility.displayData("Enter a valid appointment´s ID to update the status:");
-            appointmentId = (String) utility.getDataUser(DataUserType.TEXT);
-            uuidAppointment = UUID.fromString(appointmentId);
-        }while (!appointmentIds.contains(uuidAppointment));
-
-        UUID finalUuidAppointment = uuidAppointment;
-        Optional<Appointment> optionalAppointmentUpdate = appointments
-                .stream().filter(appointment -> appointment.getId().equals(finalUuidAppointment)).findFirst();
-
-        Appointment appointmentUpdate;
-
-        if (optionalAppointmentUpdate.isEmpty()) {
-            utility.displayData("ID not found.");
+        Optional<Appointment> optionalAppointmentUpdate = getAppointment(appointments);
+        if (optionalAppointmentUpdate.isEmpty()){
             return;
         }
-
-        appointmentUpdate = optionalAppointmentUpdate.get();
+        Appointment appointmentUpdate = optionalAppointmentUpdate.get();
 
         Status newStatus = changeStatus(appointmentUpdate);
 
@@ -129,6 +112,28 @@ public class UIAppointment {
         utility.displayData("The Appointment with ID: " +
                 appointmentUpdate.getId() + "was updated successfully.");
 
+    }
+
+    public Optional<Appointment> getAppointment(List<Appointment> appointments) {
+        List<UUID> appointmentIds = appointments.stream().map(Appointment::getId).toList();
+        String appointmentId;
+        UUID uuidAppointment;
+
+        do {
+            utility.displayData("Enter a valid appointment´s ID to continue:");
+            appointmentId = (String) utility.getDataUser(DataUserType.TEXT);
+            uuidAppointment = UUID.fromString(appointmentId);
+        }while (!appointmentIds.contains(uuidAppointment));
+
+        UUID finalUuidAppointment = uuidAppointment;
+        Optional<Appointment> optionalAppointmentUpdate = appointments
+                .stream().filter(appointment -> appointment.getId().equals(finalUuidAppointment)).findFirst();
+
+        if (optionalAppointmentUpdate.isEmpty()) {
+            utility.displayData("ID not found.");
+            return Optional.empty();
+        }
+        return optionalAppointmentUpdate;
     }
 
     private Status changeStatus(Appointment appointmentUpdate){
