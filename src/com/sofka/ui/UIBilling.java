@@ -5,8 +5,6 @@ import com.sofka.appointment.Status;
 import com.sofka.medicine.Medicine;
 import com.sofka.util.DataUserType;
 import com.sofka.util.Utility;
-
-import java.util.IllegalFormatCodePointException;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +17,7 @@ public class UIBilling {
     private List<Appointment> appointments;
     private UIAppointment uiAppointment = new UIAppointment();
 
-    public List<Medicine> uiBilling (List<Medicine> medicinesSanipet,
+    public List<Medicine> billingMenu (List<Medicine> medicinesSanipet,
                            List<Appointment> appointmentsSanipet){
 
         medicines = medicinesSanipet;
@@ -42,17 +40,24 @@ public class UIBilling {
 
         switch (option) {
             case 1 -> {
-                double subTotal = createBill();
-                double taxes = subTotal * IVA;
-                double total = subTotal + taxes;
-                utility.displayData("Bill created successfully, this is your resume: \n"
-                + "Subtotal = \n" + subTotal + "Taxes = \n" + taxes + "Total to pay = " + total);
+                if (createBill() == 0){
+                    break;
+                }
+                displayBill();
             }
             case 0 -> utility.displayData("You will be redirect to main menu.");
             default -> utility.displayData("Enter a valid option.");
         }
 
         utility.displayData("-------------------------------------------------------------------------------");
+    }
+
+    private void displayBill() {
+        double subTotal = createBill();
+        double taxes = subTotal * IVA;
+        double total = subTotal + taxes;
+        utility.displayData("Bill created successfully, this is your resume: \n"
+        + "Subtotal = " + subTotal + "\nTaxes = " + taxes + "\nTotal to pay = " + total);
     }
 
     private Double createBill(){
@@ -103,35 +108,43 @@ public class UIBilling {
 
     private int billMedicine(){
 
-        int value = 0;
-
-        utility.displayData("Enter the name of the medicine to add:");
-        String name = (String) utility.getDataUser(DataUserType.TEXT);
-
-        Optional<Medicine> medicineOptional = medicines.stream().filter(item -> item.getName().equals(name)).findFirst();
-
-        if (medicineOptional.isEmpty()){
-            utility.displayData("The medicine enter do not exist.");
-            return value;
-        }
-
-        Medicine medicine = medicineOptional.get();
+        Medicine medicine = getMedicine();
 
         utility.displayData("Available stock of medicine: " + medicine.getName()
                 + "is " + medicine.getAvailableStock() + "units");
         utility.displayData("Please enter the quantity to bill:");
         int quantity = (int) utility.getDataUser(DataUserType.INTEGER);
 
+        return getBillValue(medicine, quantity);
+
+    }
+
+    private int getBillValue(Medicine medicine, int quantity) {
+        int value = 0;
+
         if (quantity <= medicine.getAvailableStock()){
             medicine.setAvailableStock(medicine.getAvailableStock() - quantity);
             value = medicine.getPrice() * quantity;
             utility.displayData("Product added successfully");
-        }else {
-            utility.displayData("The quantity is higher that the available stock.");
         }
+        utility.displayData("The quantity is higher that the available stock.");
 
         return value;
+    }
 
+    private Medicine getMedicine() {
+        utility.displayData("Enter the name of the medicine to add:");
+        String name = (String) utility.getDataUser(DataUserType.TEXT);
+
+        Optional<Medicine> medicineOptional = medicines.stream()
+                .filter(item -> item.getName().equals(name)).findFirst();
+
+        if (medicineOptional.isEmpty()){
+            utility.displayData("The medicine enter do not exist.");
+            return null;
+        }
+
+        return medicineOptional.get();
     }
 
 }

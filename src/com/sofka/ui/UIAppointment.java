@@ -115,6 +115,19 @@ public class UIAppointment {
     }
 
     public Optional<Appointment> getAppointment(List<Appointment> appointments) {
+
+        UUID finalUuidAppointment = validateAppointmentID(appointments);
+        Optional<Appointment> optionalAppointmentUpdate = appointments
+                .stream().filter(appointment -> appointment.getId().equals(finalUuidAppointment)).findFirst();
+
+        if (optionalAppointmentUpdate.isEmpty()) {
+            utility.displayData("ID not found.");
+            return Optional.empty();
+        }
+        return optionalAppointmentUpdate;
+    }
+
+    private UUID validateAppointmentID(List<Appointment> appointments) {
         List<UUID> appointmentIds = appointments.stream().map(Appointment::getId).toList();
         String appointmentId;
         UUID uuidAppointment;
@@ -124,16 +137,7 @@ public class UIAppointment {
             appointmentId = (String) utility.getDataUser(DataUserType.TEXT);
             uuidAppointment = UUID.fromString(appointmentId);
         }while (!appointmentIds.contains(uuidAppointment));
-
-        UUID finalUuidAppointment = uuidAppointment;
-        Optional<Appointment> optionalAppointmentUpdate = appointments
-                .stream().filter(appointment -> appointment.getId().equals(finalUuidAppointment)).findFirst();
-
-        if (optionalAppointmentUpdate.isEmpty()) {
-            utility.displayData("ID not found.");
-            return Optional.empty();
-        }
-        return optionalAppointmentUpdate;
+        return uuidAppointment;
     }
 
     private Status changeStatus(Appointment appointmentUpdate){
@@ -188,6 +192,7 @@ public class UIAppointment {
         if (appointmentsPerDate.isEmpty()){
             utility.displayData("There are no appointments for the indicated date");
         }else {
+            utility.displayData("The appointments on date: " + date + "is/are: ");
             appointmentsPerDate.forEach(Appointment::displayAppointment);
         }
     }

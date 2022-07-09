@@ -13,15 +13,19 @@ public class UIMedicine {
     private Utility utility = new Utility();
     List<Medicine> medicines = new ArrayList<>();
 
-    public List<Medicine> medicineMenu(){
+    public List<Medicine> medicineMenu(List<Medicine> medicinesSanipet){
+
+        medicines = medicinesSanipet;
 
         utility.displayData("Medicines stock:");
-        createMedicineStock();
         medicines.forEach(Medicine::displayMedicine);
+
         return medicines;
     }
 
-    private void createMedicineStock(){
+    public ArrayList<Medicine> createMedicineStock(){
+
+        ArrayList<Medicine> medicinesDefault = new ArrayList<>();
 
         Medicine medicine1 = new Medicine("Meloxican",
                 Presentation.SYRUP, 10, MeasurementUnit.MILLILITERS, Usage.HUMAN, 20, 50);
@@ -35,11 +39,13 @@ public class UIMedicine {
         Medicine medicine5 = new Medicine("Antibiotic pet",
                 Presentation.SYRUP, 10, MeasurementUnit.MILLILITERS, Usage.HUMAN, 10, 150);
 
-        medicines.add(medicine1);
-        medicines.add(medicine2);
-        medicines.add(medicine3);
-        medicines.add(medicine4);
-        medicines.add(medicine5);
+        medicinesDefault.add(medicine1);
+        medicinesDefault.add(medicine2);
+        medicinesDefault.add(medicine3);
+        medicinesDefault.add(medicine4);
+        medicinesDefault.add(medicine5);
+
+        return medicinesDefault;
     }
 
 }

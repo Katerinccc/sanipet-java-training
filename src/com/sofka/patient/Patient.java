@@ -1,6 +1,7 @@
 package com.sofka.patient;
 
 import java.time.LocalDate;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Patient {
@@ -30,7 +31,8 @@ public class Patient {
     }
 
     private String generateClinicalNumber (){
-        int randomNum = ThreadLocalRandom.current().nextInt( 1 , 999999 + 1 );
+        Random random = new Random();
+        int randomNum = random.nextInt(999999);
         return String.valueOf(randomNum);
     }
 
